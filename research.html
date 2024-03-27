@@ -147,7 +147,7 @@
 
         .content {
             padding: 0px;
-            display: none;
+            display: block;
             overflow: hidden;
             background-color: white;
             font-family: 'Poppins';
@@ -247,7 +247,7 @@
             this.classList.toggle("active");
             var content = this.parentElement.nextElementSibling;
             if (content.style.display === "block") {
-                content.style.display = "none";
+                content.style.display = "block"; // none
             } else {
                 content.style.display = "block";
             }
