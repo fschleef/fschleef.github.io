@@ -99,10 +99,11 @@ ul li {
     font-family: 'Poppins', sans-serif;
 }
 p.tight {
-    display: flex; /* CHANGE: Enable Flexbox */
-    /* Keep padding and indent for the whole line alignment */
-    padding-left: 36px;
-    text-indent: -36px; 
+    display: flex; 
+    /* NEW: Use space-between to push the two items (button and meta) apart */
+    justify-content: space-between; 
+    /* padding-left: 36px;
+    text-indent: -36px; */
     margin-bottom: 4px;
 }
 img.myface {
@@ -164,13 +165,14 @@ img.myface {
 }
 
 .paper-meta {
-    flex-shrink: 0; /* Prevents text from shrinking */
-    padding-right: 15px; /* Adds space between the link and the button */
-    font-size: 1em; /* Makes text slightly smaller */
-    align-self: flex-end; /* Aligns the link to the top of the flex container */
-    padding-top: 0.2em; /* Adjust to align vertically with the button title */
+    flex-shrink: 0; 
+    /* Changed to left padding to separate it from the button */
+    padding-left: 15px; 
+    /* Align to the end of the cross-axis (bottom), or remove for default center/stretch */
+    align-self: flex-start; 
+    font-size: 1em; 
+    padding-top: 0.2em; 
 }
-
 @media (min-width:600px) {
 div.lcolumn {
     float: left;
