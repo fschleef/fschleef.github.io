@@ -98,13 +98,39 @@ ul li {
     padding-bottom: .2em;
     font-family: 'Poppins', sans-serif;
 }
+/* MODIFIED: p.tight now stacks the title and meta rows */
 p.tight {
     display: flex; 
-    /* NEW: Use space-between to push the two items (button and meta) apart */
-    justify-content: space-between; 
-    /* padding-left: 36px;
+    flex-direction: column; /* Stacks the child rows vertically 
+    padding-left: 36px;
     text-indent: -36px; */
     margin-bottom: 4px;
+}
+
+.title-row {
+    line-height: 1.2em;
+    padding-bottom: 2px;
+}
+/* The title itself needs to counter the indent set on p.tight */
+.title-row b {
+    display: inline-block;
+    padding-left: 36px;
+    text-indent: -36px;
+}
+/* Meta row uses Flexbox to split items left/right */
+.meta-row {
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.2em;
+    font-size: 0.9em; /* Smaller font for meta info */
+    padding-bottom: 4px; /* Space above abstract */
+    /* Coauthors are naturally left-aligned */
+}
+/* Status and Button wrapper pushes content to the right */
+.status-and-button {
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 5px; /* Slight padding to the right edge */
 }
 img.myface {
     width: 50%;
@@ -115,38 +141,35 @@ img.myface {
     margin-right: auto;
     display: block;
 }
+/* MODIFIED: COLLAPSIBLE BUTTON for single arrow */
 .collapsible {
-    color: black;
-    background-color: transparent; /* Changed from white to transparent */
+    color: #000066; /* Set button color to blue for visibility */
+    background-color: transparent; 
     cursor: pointer;
     margin: 0px;
     border: none;
-    text-align: left;
-    display: block; /* Make the button a block element to cover the whole line */
-    width: 100%;
+    text-align: right; /* Ensure the arrow stays to the right */
+    display: inline-block; 
+    width: auto;
     outline: none;
     font-family: 'Poppins', sans-serif;
-    padding: 0;
-    line-height: 1.2em;
-    font-size: 1em; /* Inherit paragraph font size */
+    padding: 0 5px; /* Add slight padding around the arrow */
+    line-height: 1em;
+    font-size: 1.2em; /* Make the arrow slightly larger */
 }
-/* Style the title text inside the button */
-.collapsible b {
-    padding-left: 36px;
-    text-indent: -36px;
-    display: inline-block;
-}
+/* REMOVE .collapsible b {} entirely, as <b> is no longer inside the button */
+
 .collapsible:after {
-    font-size: 1.2em;
-    content:' \25BC'; /* Down arrow */
-    float: right;
+    font-size: 1em; /* Keep original size relative to parent (1.2em) */
+    content:' \25BC'; 
+    float: none; /* No need for float */
     transition: transform 0.2s ease;
 }
 .active:after {
-    content:' \25B2'; /* Up arrow when active */
+    content:' \25B2'; 
 }
 .collapsible:hover, .active {
-    background-color: #f0f0f5; /* Slight change on hover/active */
+    background-color: transparent; /* Changed hover color to keep the row clean */
     color: #000066;
 }
 /* Use max-height and overflow:hidden for smooth transition effect */
@@ -241,15 +264,21 @@ div.rcolumn {
 
         <h3>Work in Progress:</h3> 
         <p class="tight">
-            <button type="button" class="collapsible">
-                <b>Quality Disclosures and Disappointment: Evidence from the Academy Awards</b> with <a href="https://michelangelorossi.github.io/">Michelangelo Rossi</a> 
-                <span class="paper-meta">Accepted, Management Science</span>
-            </button>
+            <span class="title-row">
+                <b>Quality Disclosures and Disappointment: Evidence from the Academy Awards</b>
+            </span>
+            <span class="meta-row">
+                <span class="coauthors">
+                    With <a href="https://michelangelorossi.github.io/">Michelangelo Rossi</a>
+                </span>
+                <span class="status-and-button">
+                    [Accepted, Management Science]
+                    <button type="button" class="collapsible"></button>
+                </span>
+            </span>
         </p>
         <div class="content">
-        This paper studies the impact of quality disclosures on buyers' ratings using data from an online recommender system. Disclosures may alter expectations on sellers' quality and affect buyers' rating behavior. In particular, if buyers' utility depends on their expectations, a positive disclosure of quality such as an award may lead to buyers' disappointment with a negative influence on their ratings. We identify the disappointment effect in moviegoers' ratings originated from the rise in expectations due to movies' nominations for the Academy of Motion Picture Arts and Sciences awards. We control for the selection of moviegoers who watch and rate movies before or after nominations with a non-parametric matching technique. After nominations, ratings for nominated movies significantly drop relative to ratings for movies that were not nominated. Disappointment reduces the rating premium of nominated movies by more than five percent in the next thirty days after the nomination. 
         </div>
-
         <p class="tight">
             <button type="button" class="collapsible">
                 <b> Consumer Choice between Recommendation Algorithms – Experimental Evidence </b> <a href="Schleef (2024) - Consumer Choice between Recommendation Algorithms - Experimental Evidence.pdf" target="_blank" rel="noopener noreferrer">[Draft]</a>
