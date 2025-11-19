@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!--CSS Header-->
-<style type = text/css> 
-body {width: 70%;
+<style> 
+body {
+    width: 70%;
     background-color: white;
-    margin: auto;}
-nav {border-bottom: 1px solid  #000066;
+    margin: auto;
 }
-ul.tight {margin-top: 4px;
-	padding-left: 54px;
-	}
+nav {
+    border-bottom: 1px solid #000066;
+}
+ul.tight {
+    margin-top: 4px;
+    padding-left: 54px;
+}
 nav ul, footer ul {
-    font-family:'Poppins';
+    font-family:'Poppins', sans-serif;
     padding: 0px;
     list-style: none;
     font-weight: normal;
@@ -28,165 +32,282 @@ nav ul li, footer ul li {
 nav ul li a {
     font-weight: 500;
     font-size: large;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     text-decoration: none;
 }
 footer ul {
     float: right;
 }
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 a {
     text-decoration: none;
     color: #000066;
-    font-weight: heavy;
+    /* Changed 'heavy' to a standard weight for consistency with font imports */
+    font-weight: 700; 
 }
 a:hover {
     text-decoration: underline;
 }
 h1 {
     font-size: 2.5em;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-variant: titling-caps;
     text-align: center;
     font-weight: 200;
 }
+/* h2 for main section headers */
 h2 {
     font-size: 1.75em;
-    font-family:'Poppins';
+    font-family:'Poppins', sans-serif;
     font-weight: 500;
     margin-bottom: 0px;
-	text-align: center;
+    text-align: center;
+}
+/* h3 for sub-sections (like "Work in Progress") */
+h3 {
+    font-size: 1.5em;
+    font-family:'Poppins', sans-serif;
+    font-weight: 500;
+    margin-bottom: 0px;
+    text-align: center;
 }
 p {
     font-size: 1em;
     line-height: 1.2em;
-    font-family:'Poppins';
+    font-family:'Poppins', sans-serif;
     font-weight: normal;
     color: black;
 }
 footer {
-	margin-top: 10px;
+    padding-top: 10px; /* Added padding instead of margin for a cleaner visual break */
     margin-bottom: 10px;
     border-top: 2px solid #000066;
     font-size: .8em;
+    /* Added clearfix for float:right in footer ul */
+    overflow: auto; 
 }
 ul {
     line-height: 1.2em;
-    font-family: 'Poppins';
-    }
+    font-family: 'Poppins', sans-serif;
+}
 ul li {
-	padding-bottom: .2em;
-	font-family: 'Poppins';
-	}
+    padding-bottom: .2em;
+    font-family: 'Poppins', sans-serif;
+}
 p.tight {
-	padding-left: 36px;
+    padding-left: 36px;
     text-indent: -36px;
-	margin-bottom: 4px;
-    }
+    margin-bottom: 4px;
+}
 img.myface {
-    width: 70%;
+    width: 50%;
     height:auto;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     display: block;
-    }
-.collapsible {
-  color: black;
-  background-color: white;
-  cursor: pointer;
-  margin: 0px;
-  border: none;
-  text-align: left;
-  display: inline-block;
-  outline: none;
-  font-family: 'Poppins';
-	}
-.collapsible:after {
-	font-size: 1.2em;
-	content:' \25BC';
-    }
-.active, .collapsible:hover {
-  background-color: white;
-  color: #000066;
-	}
-.content {
-  padding: 0px;
-  display: none;
-  overflow: hidden;
-  background-color: white;
 }
+.collapsible {
+    color: black;
+    background-color: transparent; /* Changed from white to transparent */
+    cursor: pointer;
+    margin: 0px;
+    border: none;
+    text-align: left;
+    display: block; /* Make the button a block element to cover the whole line */
+    width: 100%;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    line-height: 1.2em;
+    font-size: 1em; /* Inherit paragraph font size */
+}
+/* Style the title text inside the button */
+.collapsible b {
+    padding-left: 36px;
+    text-indent: -36px;
+    display: inline-block;
+}
+.collapsible:after {
+    font-size: 1.2em;
+    content:' \25BC'; /* Down arrow */
+    float: right;
+    transition: transform 0.2s ease;
+}
+.active:after {
+    content:' \25B2'; /* Up arrow when active */
+}
+.collapsible:hover, .active {
+    background-color: #f0f0f5; /* Slight change on hover/active */
+    color: #000066;
+}
+/* Use max-height and overflow:hidden for smooth transition effect */
+.content {
+    padding: 0 18px; 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.2s ease-out; /* Enable transition for smooth reveal */
+    background-color: white;
+}
+/* The class added by JavaScript to show content */
+.content.show {
+    max-height: 500px; /* A value larger than the max expected content height */
+}
+
+
 @media (min-width:600px) {
 div.lcolumn {
     float: left;
     width: 40%;
-}	
+}   
 div.rcolumn {
     float: right;
     width: 60%;
     vertical-align: center;
-	}
-	}
+}
+}
 @media (max-width:600px) {
 div.lcolumn {
-	width: 100%;
-	margin: auto ;
-	float: none;
+    width: 100%;
+    margin: auto ;
+    float: none;
 }
 div.rcolumn {
-	width: 100%;
-	margin: auto;
-	float: none;
+    width: 100%;
+    margin: auto;
+    float: none;
 }
 }
 </style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Noto+Sans:wght@200..900">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+      href="https://fonts.googleapis.com/css?family=Noto+Sans:wght@200..900">
+      
 <title>Felix Schleef</title>
 </head>
 <body>
-	<h1> Felix Schleef 
-		</h1>
+    <h1> Felix Schleef </h1>
 <nav>
 <ul>
 <li><a href="/">Home</a></li>
 <li><a href="/research">Research</a></li>
 </ul>
 </nav>
+
 <div class="container">
 <div class="row">
 <div class ="lcolumn">
-<img class="myface" src="Images/profile_photo.JPG" alt="Felix Schleef">
+<img class="myface" src="Images/profile_photo.JPG" alt="Portrait of Felix Schleef">
 </div>
 <div class="rcolumn">
     <h2>About Me</h2>
 <p> I'm currently an associate at RBB economics in the Paris office. I hold a PhD in industrial organization from <a href="https://crest.science/"> CREST Paris </a> / ENSAE / IP Paris where I was supervised by <a href="https://www.ensae.fr/faculty/931-thibaud-verge" target="_blank" rel="noopener noreferrer">Thibaud Vergé</a>. </p>
 <p>Research Interests:</p> 
 <ul>
+<li>Quantitative Marketing</li>
 <li>Digital Economics</li>
-<li>Platforms</li>
 <li>Franchising and Retail</li>
 </ul>
 
-	<p>Here is my:</p>
-	
-	<p><a href="CV_FelixSchleef.pdf" target="_blank" rel="noopener noreferrer">[CV]</a> <span>&#183;</span>
+    <p>Here is my:</p>
+    
+    <div> 
+        <a href="CV_FelixSchleef.pdf" target="_blank" rel="noopener noreferrer">[CV]</a> <span>&#183;</span>
         <a href="https://twitter.com/felixschleef?lang=en" target="_blank" rel="noopener noreferrer">[Twitter]</a> <span>&#183;</span>
-        <a href="https://www.linkedin.com/in/felix-schleef-31b4aa14a" target="_blank" rel="noopener noreferrer">[LinkedIn]</a></p>
+        <a href="https://www.linkedin.com/in/felix-schleef-31b4aa14a" target="_blank" rel="noopener noreferrer">[LinkedIn]</a>
+    </div>
 
 </div>
-</div>				
+</div>             
 </div>
-	<footer>
+
+<hr> <h2>Research</h2>
+    <div class="container">
+
+        <h3>Work in Progress:</h3> <p class="tight">
+            <button type="button" class="collapsible">
+                <b>Quality Disclosures and Disappointment: Evidence from the Academy Awards</b> with <a href="https://michelangelorossi.github.io/">Michelangelo Rossi</a> 
+            </button>
+        </p>
+        <div class="content">
+        <ul>
+            <li>Accepted, Management Science</li>
+        </ul> 
+        This paper studies the impact of quality disclosures on buyers' ratings using data from an online recommender system. Disclosures may alter expectations on sellers' quality and affect buyers' rating behavior. In particular, if buyers' utility depends on their expectations, a positive disclosure of quality such as an award may lead to buyers' disappointment with a negative influence on their ratings. We identify the disappointment effect in moviegoers' ratings originated from the rise in expectations due to movies' nominations for the Academy of Motion Picture Arts and Sciences awards. We control for the selection of moviegoers who watch and rate movies before or after nominations with a non-parametric matching technique. After nominations, ratings for nominated movies significantly drop relative to ratings for movies that were not nominated. Disappointment reduces the rating premium of nominated movies by more than five percent in the next thirty days after the nomination. 
+        </div>
+
+        <p class="tight">
+            <button type="button" class="collapsible">
+                <b> Consumer Choice between Recommendation Algorithms – Experimental Evidence </b> <a href="Schleef (2024) - Consumer Choice between Recommendation Algorithms - Experimental Evidence.pdf" target="_blank" rel="noopener noreferrer">[Draft]</a>
+            </button> 
+        </p>
+        <div class="content">
+            Regulators are increasingly getting concerned with the power of large online platforms to bias consumer recommendations. In light of these concerns, I study mechanisms to give consumers control over recommendation algorithms as a potential avenue for regulation using an online experiment. I show that in the experimental setting, an algorithm that ranks items by estimated consumer surplus leads to better outcomes for the subjects than an algorithm that weighs consumer surplus and a cost-minimization objective. When faced with a costly choice between two recommendation algorithms, subjects have a positive willingness-to-pay for a better recommendation algorithm. Subjects however underestimate the potential gain from the better recommendation algorithm. For a $1 higher estimated gain from having the better algorithm, subjects willingness-to-pay increases by $0.07 on average. These findings suggest, that giving consumers power over recommendation algorithms to curtail potential abuse is not straightforward. It may however be a viable business for platforms to themselves to offer improved recommendation algorithms to consumers for a fee.  
+        </div>
+
+
+        <p class="tight">
+            <button type="button" class="collapsible">
+                <b> Competition and Organizational Form Choice: Evidence from Fast Food Chains </b> <a href="Schleef (2024) - Competition and Organizational Form Choice.pdf" target="_blank" rel="noopener noreferrer">[Draft]</a> <span>&#183;</span> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4836623" target="_blank" rel="noopener noreferrer">[SSRN]</a>
+            </button>
+        </p>
+        <div class="content">   
+        The majority of franchise firms employ a dual distribution strategy: a share of the outlets are owned and operated by franchisees, which are entrepreneurs bound to the franchise firm by contractual agreement, while the rest are owned by the franchise firm outright and operated by employed managers. This organizational form choice has potential consequences for firm performance, investment and consumer welfare, since economic theory suggests that employed managers have lower incentives to exert effort compared to franchisees. A large literature explores potential factors that may affect this organizational form decision. However, little has been written about the effect of product market competition on organizational form choice. I study this question empirically using data on fast-food chains in Germany. Reduced-form regressions reveal that a larger number of competitors positively correlates with outlets being manager-operated. To address the concern that unobserved market profitability may both affect the number of competitors and the organizational form decision, I employ a profit inequality approach that allows me to account for unobservable market characteristics. The results from the profit inequality approach corroborate that franchise firms rely more on employed managers in markets where there are many competitors.
+        </div>
+
+    </div>
+
+    <div class="container">
+        <h3>Policy Papers:</h3> <p class="tight">
+            <button type="button" class="collapsible">
+                <b> Are the current “automatic stabilisers” in the Euro Area Member States sufficient to smooth economic cycles?</b> with Mathias Dolls, Clemens Fuest and Andreas Peichl (2019) <a href="https://www.europarl.europa.eu/RegData/etudes/STUD/2019/634400/IPOL_STU(2019)634400_EN.pdf" target="_blank" rel="noopener noreferrer">[Link]</a>
+            </button> 
+        </p>
+        <div class="content">   
+        This report provides a country-specific stocktaking of automatic stabilisers in the Eurozone and analyses the effect of automatic stabilisers in preventing pro-cyclical fiscal policies in good and bad times. The report shows that the size of automatic stabilisers varies greatly across Euro-area Member States. While automatic stabilisers have played an important role in the early phase of the financial and economic crisis in 2008/2009, their countercyclical effect was partly offset in some Member States by a pro-cyclical fiscal stance in other years, in particular throughout the period 2011-2016. The report concludes that Euro-area fiscal governance needs to be improved and that it is key to build up fiscal buffers in good economic times so that automatic stabilisers can operate freely in prolonged downturns.      
+        </div>
+
+    </div>
+
+<hr>
+
+<footer>
+    <p style="text-align: center; margin: 0;">&copy; 2024 Felix Schleef. All rights reserved.</p>
 </footer>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            // Toggle the 'active' class on the button itself
+            this.classList.toggle("active"); 
+            
+            // Get the content element (which is the element sibling *after* the parent P tag)
+            var content = this.parentElement.nextElementSibling;
+
+            // Toggle a 'show' class on the content element
+            if (content.classList.contains("show")) {
+                content.classList.remove("show");
+                // Manually set max-height to 0 for the transition
+                content.style.maxHeight = null; 
+            } else {
+                content.classList.add("show");
+                // Set max-height to the actual content height to enable the transition
+                content.style.maxHeight = content.scrollHeight + "px"; 
+            }
+        });
+    }
+</script>
+
 </body>
 </html>
