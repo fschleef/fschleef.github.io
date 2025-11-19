@@ -99,8 +99,10 @@ ul li {
     font-family: 'Poppins', sans-serif;
 }
 p.tight {
+    display: flex; /* CHANGE: Enable Flexbox */
+    /* Keep padding and indent for the whole line alignment */
     padding-left: 36px;
-    text-indent: -36px;
+    text-indent: -36px; 
     margin-bottom: 4px;
 }
 img.myface {
@@ -161,6 +163,13 @@ img.myface {
     max-height: 500px; /* A value larger than the max expected content height */
 }
 
+.paper-meta {
+    flex-shrink: 0; /* Prevents text from shrinking */
+    padding-right: 15px; /* Adds space between the link and the button */
+    font-size: 0.9em; /* Makes text slightly smaller */
+    align-self: flex-start; /* Aligns the link to the top of the flex container */
+    padding-top: 0.2em; /* Adjust to align vertically with the button title */
+}
 
 @media (min-width:600px) {
 div.lcolumn {
@@ -228,15 +237,14 @@ div.rcolumn {
 <hr> 
     <div class="container">
 
-        <h3>Work in Progress:</h3> <p class="tight">
+        <h3>Work in Progress:</h3> 
+        <p class="tight">
+            <span class="paper-meta">Accepted, Management Science</span>
             <button type="button" class="collapsible">
                 <b>Quality Disclosures and Disappointment: Evidence from the Academy Awards</b> with <a href="https://michelangelorossi.github.io/">Michelangelo Rossi</a> 
             </button>
         </p>
         <div class="content">
-        <ul>
-            <li>Accepted, Management Science</li>
-        </ul> 
         This paper studies the impact of quality disclosures on buyers' ratings using data from an online recommender system. Disclosures may alter expectations on sellers' quality and affect buyers' rating behavior. In particular, if buyers' utility depends on their expectations, a positive disclosure of quality such as an award may lead to buyers' disappointment with a negative influence on their ratings. We identify the disappointment effect in moviegoers' ratings originated from the rise in expectations due to movies' nominations for the Academy of Motion Picture Arts and Sciences awards. We control for the selection of moviegoers who watch and rate movies before or after nominations with a non-parametric matching technique. After nominations, ratings for nominated movies significantly drop relative to ratings for movies that were not nominated. Disappointment reduces the rating premium of nominated movies by more than five percent in the next thirty days after the nomination. 
         </div>
 
