@@ -32,16 +32,13 @@
             align-items: flex-start;
         }
 
-        /* 1. Profile Picture - "Way Smaller" & Circular */
         .profile-pic {
-            width: 100px;       
-            height: 100px;      
-            border-radius: 50%; 
-            overflow: hidden;   
+            width: 120px;         /* Reduced from 120px */
+            height: 180px;       /* Reduced from 180px (maintaining 2:3 ratio) */
+            border-radius: 4px;  /* Slight rounding on corners looks nicer */
             background: #f0f0f0;
-            flex-shrink: 0;     
-            border: 2px solid #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-shrink: 0;
+            overflow: hidden;
         }
 
         .profile-pic img {
@@ -197,9 +194,7 @@
                 <div class="header-columns">
                     <nav>
                         <ul class="col-list">
-                            <li><a href="#about">About</a></li>
                             <li><a href="#research">Research</a></li> <li><a href="#publications">Publications</a></li>
-                            <li><a href="#news">News</a></li>
                             <li><a href="CV_FelixSchleef.pdf" target="_blank"><strong>Curriculum Vitae</strong></a></li>
                         </ul>
                     </nav>
@@ -232,26 +227,12 @@
     <main class="container">
         
         <section id="about">
-            <h2>About</h2>
             <div class="intro-text">
                 <p>I'm currently an associate at RBB economics in the Paris office. I hold a PhD in economics from <a href="https://crest.science/">CREST Paris</a> / IP Paris where I was supervised by <a href="https://www.ensae.fr/faculty/931-thibaud-verge" target="_blank" rel="noopener noreferrer">Thibaud Vergé</a>.</p>
                 <p>I work at the intersection of quantitative marketing, industrial organization, and digitization. My research focuses on firm decisions, recommendation systems, and online markets.</p>
             </div>
         </section>
 
-        <section id="research">
-            <h2>Research Interests</h2>
-            <div class="research-interests">
-                <div class="interest-card">
-                    <h3>Industrial Organization</h3>
-                    <p>Market structures, competition policy, and firm behavior.</p>
-                </div>
-                <div class="interest-card">
-                    <h3>Digital Economics</h3>
-                    <p>Platform competition, algorithms, and data privacy.</p>
-                </div>
-            </div>
-        </section>
 
         <section id="news">
             <h2>News & Updates</h2>
