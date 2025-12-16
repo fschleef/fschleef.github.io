@@ -245,3 +245,86 @@
                 <div class="interest-card">
                     <h3>Industrial Organization</h3>
                     <p>Market structures, competition policy, and firm behavior.</p>
+                </div>
+                <div class="interest-card">
+                    <h3>Digital Economics</h3>
+                    <p>Platform competition, algorithms, and data privacy.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="news">
+            <h2>News & Updates</h2>
+            <div id="news-container">
+                <div class="news-item" data-date="2025-08-01">
+                    <p class="news-date">August 1, 2025</p>
+                    <p><strong>This item is hidden</strong> - older than 60 days (demonstration only).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Publications & Working Papers</h2>
+            <div class="post-list">
+                <article class="post-item">
+                    <h3><a href="#">Quality Disclosures and Disappointment: Evidence from the Academy Awards</a></h3>
+                    <p class="post-authors">with <a href="https://michelangelorossi.github.io/publications/" target="_blank" rel="noopener noreferrer">Michelangelo Rossi</a></p>
+                    <p class="post-meta">Accepted, Management Science</p>
+                    <div class="paper-links">
+                        <a href="https://www.ifo.de/en/cesifo/publications/2024/working-paper/quality-disclosures-and-disappointment-evidence-academy-nominations" target="_blank" rel="noopener noreferrer">CESifo Working Paper</a>
+                    </div>
+                </article>
+                
+                <article class="post-item">
+                    <h3><a href="Schleef (2025) - Consumer Choice between Recommendation Algorithms - Experimental Evidence.pdf" target="_blank" rel="noopener noreferrer">Consumer Choice between Recommendation Algorithms – Experimental Evidence</a></h3>
+                    <p class="post-meta">Work in Progress, 2025</p>
+                </article>
+
+                <article class="post-item">
+                    <h3><a href="Schleef (2024) - Competition and Organizational Form Choice.pdf" target="_blank" rel="noopener noreferrer">Competition and Organizational Form Choice</a></h3>
+                    <p class="post-meta">Work in Progress, 2024</p>
+                    <div class="paper-links">
+                        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4836623" target="_blank" rel="noopener noreferrer">SSRN</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Felix Schleef</p>
+    </footer>
+
+    <script>
+        // Updated logic: Hide entire section if no news is visible
+        function hideExpiredNews() {
+            const maxAgeDays = 60;
+            const now = new Date();
+            const newsItems = document.querySelectorAll('.news-item');
+            const newsSection = document.getElementById('news');
+            
+            let visibleCount = 0;
+            
+            newsItems.forEach(item => {
+                const newsDate = new Date(item.dataset.date);
+                const daysDifference = (now - newsDate) / (1000 * 60 * 60 * 24);
+                
+                if (daysDifference > maxAgeDays) {
+                    item.style.display = 'none'; // Hide the specific item
+                } else {
+                    visibleCount++; // Count it if it's new enough
+                }
+            });
+
+            // If count is 0, hide the whole header/section
+            if (visibleCount === 0 && newsSection) {
+                newsSection.style.display = 'none';
+            }
+        }
+        
+        // Run on page load
+        hideExpiredNews();
+    </script>
+</body>
+</html>
