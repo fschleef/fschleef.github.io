@@ -1,276 +1,197 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Schleef</title>
+    <style>
+        /* --- RESET & BASICS --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
 
-
-    <!--CSS Header-->
-    <style type=text/css>
         body {
-            width: 70%;
-            background-color: white;
-            margin: auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
         }
 
-        nav {
-            border-bottom: 1px solid #000066;
+        /* --- HEADER LAYOUT --- */
+        header {
+            max-width: 1000px; 
+            margin: 0 auto;
+            padding: 4rem 2rem 0.5rem;
+            border-bottom: 1px solid #000;
         }
 
-        ul.tight {
-            margin-top: 4px;
-            padding-left: 54px;
+        .header-layout {
+            display: flex;
+            gap: 3rem; 
+            align-items: flex-start;
         }
 
-        nav ul,
-        footer ul {
-            font-family: 'Poppins';
-            padding: 0px;
+        .profile-pic {
+            width: 150px;
+            height: 225px;
+            border-radius: 4px;
+            background: #f0f0f0;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .header-info {
+            flex-grow: 1;
+        }
+
+        .header-title {
+            margin-bottom: 2rem;
+        }
+
+        .header-title h1 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #000;
+            margin-bottom: 0.2rem;
+        }
+
+        .header-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .col-list {
             list-style: none;
-            font-weight: normal;
-            color: black;
-            margin: 4px;
         }
 
-        nav ul li,
-        footer ul li {
-            display: inline;
-            margin-right: clamp(15px, 10%, 80px);
+        .col-list li {
+            margin-bottom: 0.5rem;
         }
 
-        nav ul li a {
-            font-weight: 500;
-            font-size: large;
-            font-family: 'Poppins';
+        .col-list a {
             text-decoration: none;
+            color: #333;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        footer ul {
-            float: right;
-        }
-
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        a {
-            text-decoration: none;
-            color: #000066;
-            font-weight: heavy;
-        }
-
-        a:hover {
+        .col-list a:hover {
+            color: #0066cc;
             text-decoration: underline;
         }
 
-        h1 {
-            font-size: 2.5em;
-            font-family: 'Poppins';
-            font-variant: titling-caps;
-            text-align: center;
-            font-weight: 200;
+        /* --- MAIN CONTENT --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        h2 {
-            font-size: 1.75em;
-            font-family: 'Poppins';
-            font-weight: 500;
-            margin-bottom: 0px;
-            text-align: center;
+        main { padding: 4rem 0; }
+
+        /* Style for the move notice */
+        .move-notice {
+            font-size: 1.2rem;
+            padding: 2rem;
+            background: #fafafa;
+            border-left: 3px solid #0066cc;
         }
 
-        p {
-            font-size: 1em;
-            line-height: 1.2em;
-            font-family: 'Poppins';
-            font-weight: normal;
-            color: black;
+        .move-notice a {
+            color: #0066cc;
+            font-weight: 600;
+            text-decoration: underline;
         }
 
+        /* --- FOOTER --- */
         footer {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            border-top: 2px solid #000066;
-            font-size: .8em;
+            border-top: 1px solid #eee;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.85rem;
         }
 
-        ul {
-            line-height: 1.2em;
-            font-family: 'Poppins';
-        }
-
-        ul li {
-            padding-bottom: .2em;
-            font-family: 'Poppins';
-        }
-
-        p.tight {
-            padding-left: 36px;
-            text-indent: -36px;
-            margin-bottom: 4px;
-        }
-
-        img.myface {
-            width: 70%;
-            height: auto;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-        }
-
-        .collapsible {
-            color: black;
-            background-color: white;
-            cursor: pointer;
-            margin: 0px;
-            border: none;
-            text-align: left;
-            display: inline-block;
-            outline: none;
-            font-family: 'Poppins';
-        }
-
-        .collapsible:after {
-            font-size: 1.2em;
-            content: ' \25BC';
-        }
-
-        .active,
-        .collapsible:hover {
-            background-color: white;
-            color: #000066;
-        }
-
-        .content {
-            padding: 0px;
-            display: block;
-            overflow: hidden;
-            background-color: white;
-            font-family: 'Poppins';
-        }
-
-        @media (min-width:600px) {
-            div.lcolumn {
-                float: left;
-                width: 40%;
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .header-layout {
+                flex-direction: column;
+                align-items: center;
+                text-align: left;
             }
 
-            div.rcolumn {
-                float: right;
-                width: 60%;
-                vertical-align: center;
+            .header-columns {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: left;
             }
-        }
-
-        @media (max-width:600px) {
-            div.lcolumn {
-                width: 100%;
-                margin: auto;
-                float: none;
-            }
-
-            div.rcolumn {
-                width: 100%;
-                margin: auto;
-                float: none;
+            
+            .col-list a {
+                justify-content: left;
             }
         }
     </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:wght@200..900">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Felix Schleef</title>
 </head>
-
-
 <body>
-    <h1> Felix Schleef
-    </h1>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/Research">Research</a></li>
-        </ul>
-    </nav>
 
+    <header>
+        <div class="header-layout">
+            <div class="profile-pic">
+                <img src="Images/profile_photo3.JPG" alt="Portrait of Felix Schleef">
+            </div>
 
-    <div class="container">
+            <div class="header-info">
+                <div class="header-title">
+                    <h1>Felix Schleef</h1>
+                </div>
 
-        <h2> Work in Progress: </h2>
+                <div class="header-columns">
+                    <nav>
+                        <ul class="col-list">
+                            <li><a href="CV_FelixSchleef.pdf" target="_blank"><strong>Curriculum Vitae</strong></a></li>
+                        </ul>
+                    </nav>
 
-        <p class="tight"><button type="button" class="collapsible"></button><b>Quality Disclosures and Disappointment: Evidence from the Academy Awards</b> with <a href="https://michelangelorossi.github.io/">Michelangelo Rossi</a> 
-            <!--<a
-                href="">[Dropbox]</a><a
-                href=""> [Slides] </a> -->
-        </p>
-        <div class="content">
-        <ul>
-            <li>Accepted, Management Science</li>
-        </ul> 
-        This paper studies the impact of quality disclosures on buyers' ratings using data from an online recommender system. Disclosures may alter expectations on sellers' quality and affect buyers' rating behavior. In particular, if buyers' utility depends on their expectations, a positive disclosure of quality such as an award may lead to buyers' disappointment with a negative influence on their ratings. We identify the disappointment effect in moviegoers' ratings originated from the rise in expectations due to movies' nominations for the Academy of Motion Picture Arts and Sciences awards. We control for the selection of moviegoers who watch and rate movies before or after nominations with a non-parametric matching technique. After nominations, ratings for nominated movies significantly drop relative to ratings for movies that were not nominated. Disappointment reduces the rating premium of nominated movies by more than five percent in the next thirty days after the nomination. 
+                    <div class="contact-col">
+                        <ul class="col-list">
+                            <li>
+                                <a href="mailto:felix.schleef@gmail.com">
+                                    <span>✉️</span> felix.schleef@gmail.com
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/felix-schleef-31b4aa14a" target="_blank" rel="noopener noreferrer">
+                                    <span>🔗</span> LinkedIn Profile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <p class="tight"><button type="button" class="collapsible"></button><b> Consumer Choice between Recommendation Algorithms – Experimental Evidence <a href="Schleef (2025) - Consumer Choice between Recommendation Algorithms - Experimental Evidence.pdf" target="_blank" rel="noopener noreferrer">[Draft]</a> </b> 
-            <!--<a
-                href="">[Dropbox]</a><a
-                href=""> [Slides] </a> -->
-        </p>
-        <div class="content">
-            Regulators are increasingly getting concerned with the power of large online platforms to bias consumer recommendations. In light of these concerns, I study mechanisms to give consumers control over recommendation algorithms as a potential avenue for regulation using an online experiment. I show that in the experimental setting, an algorithm that ranks items by estimated consumer surplus leads to better outcomes for the subjects than an algorithm that weighs consumer surplus and a cost-minimization objective. When faced with a costly choice between two recommendation algorithms, subjects have a positive willingness-to-pay for a better recommendation algorithm. Subjects however underestimate the potential gain from the better recommendation algorithm. For a \$1 higher estimated gain from having the better algorithm, subjects willingness-to-pay increases by \$0.07 on average. These findings suggest, that giving consumers power over recommendation algorithms to curtail potential abuse is not straightforward. It may however be a viable business for platforms to themselves to offer improved recommendation algorithms to consumers for a fee.  
-        </div>
+    <main class="container">
+        <section class="move-notice">
+            <p>This content has moved <a href="https://fschleef.github.io/#pubs">here</a></p>
+        </section>
+    </main>
 
-
-        <p class="tight"><button type="button" class="collapsible"></button><b> Competition and Organizational Form Choice: Evidence from Fast Food Chains <a href="Schleef (2024) - Competition and Organizational Form Choice.pdf" target="_blank" rel="noopener noreferrer">[Draft]</a> <span>&#183;</span> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4836623" target="_blank" rel="noopener noreferrer">[SSRN]</a> </b>
-            <!--
-            <a
-                href="">[Dropbox]</a><a
-                href=""> [Slides] </a> -->
-        </p>
-        <div class="content">  
-        The majority of franchise firms employ a dual distribution strategy: a share of the outlets are owned and operated by franchisees, which are entrepreneurs bound to the franchise firm by contractual agreement, while the rest are owned by the franchise firm outright and operated by employed managers. This organizational form choice has potential consequences for firm performance, investment and consumer welfare, since economic theory suggests that employed managers have lower incentives to exert effort compared to franchisees. A large literature explores potential factors that may affect this organizational form decision. However, little has been written about the effect of product market competition on organizational form choice. I study this question empirically using data on fast-food chains in Germany. Reduced-form regressions reveal that a larger number of competitors positively correlates with outlets being manager-operated. To address the concern that unobserved market profitability may both affect the number of competitors and the organizational form decision, I employ a profit inequality approach that allows me to account for unobservable market characteristics. The results from the profit inequality approach corroborate that franchise firms rely more on employed managers in markets where there are many competitors.
-        </div>
-
-    </div>
-
-    <div class="container">
-        <h2>Policy Papers:</h2>
-        <p class="tight"><button type="button" class="collapsible"></button><b> Are the current “automatic stabilisers” in the Euro Area Member States sufficient to smooth economic cycles?</b>  with Mathias Dolls, Clemens Fuest and Andreas Peichl (2019)<b><a href="https://www.europarl.europa.eu/RegData/etudes/STUD/2019/634400/IPOL_STU(2019)634400_EN.pdf" target="_blank" rel="noopener noreferrer">[Link]</a></b>
-            <!--
-            <a
-                href="">[Dropbox]</a><a
-                href=""> [Slides] </a> -->
-        </p>
-        <div class="content">  
-            This report provides a country-specific stocktaking of automatic stabilisers in the Eurozone and analyses the effect of automatic stabilisers in preventing pro-cyclical fiscal policies in good and bad times. The report shows that the size of automatic stabilisers varies greatly across Euro-area Member States. While automatic stabilisers have played an important role in the early phase of the financial and economic crisis in 2008/2009, their countercyclical effect was partly offset in some Member States by a pro-cyclical fiscal stance in other years, in particular throughout the period 2011-2016. The report concludes that Euro-area fiscal governance needs to be improved and that it is key to build up fiscal buffers in good economic times so that automatic stabilisers can operate freely in prolonged downturns.        </div>
-
-    </div>
+    <footer>
+        <p>&copy; 2025 Felix Schleef</p>
+    </footer>
 
 </body>
-
-<footer>
-</footer>
-
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var content = this.parentElement.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none"; // Corrected to hide the content
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
-</script>
-
 </html>
