@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
+  <style>
+    rect { width: 1px; height: 1px; }
+    .w { fill: #FFFFFF; }
+    .l { fill: #E0EEFF; }
+    .s { fill: #B8D4F0; }
+    .o { fill: #A0C4E8; }
+  </style>
+  <!-- Cloud pixel art -->
+  <!-- Row 4 (top of cloud bump) -->
+  <rect class="s" x="5" y="3"/>
+  <rect class="l" x="6" y="3"/>
+  <rect class="s" x="7" y="3"/>
+
+  <!-- Row 5 -->
+  <rect class="s" x="4" y="4"/>
+  <rect class="w" x="5" y="4"/>
+  <rect class="w" x="6" y="4"/>
+  <rect class="w" x="7" y="4"/>
+  <rect class="l" x="8" y="4"/>
+
+  <!-- Row 6 - wider with second bump -->
+  <rect class="s" x="3" y="5"/>
+  <rect class="w" x="4" y="5"/>
+  <rect class="w" x="5" y="5"/>
+  <rect class="w" x="6" y="5"/>
+  <rect class="w" x="7" y="5"/>
+  <rect class="l" x="8" y="5"/>
+  <rect class="s" x="9" y="5"/>
+  <rect class="l" x="10" y="5"/>
+  <rect class="s" x="11" y="5"/>
+
+  <!-- Row 7 -->
+  <rect class="o" x="2" y="6"/>
+  <rect class="s" x="3" y="6"/>
+  <rect class="w" x="4" y="6"/>
+  <rect class="w" x="5" y="6"/>
+  <rect class="w" x="6" y="6"/>
+  <rect class="w" x="7" y="6"/>
+  <rect class="w" x="8" y="6"/>
+  <rect class="w" x="9" y="6"/>
+  <rect class="w" x="10" y="6"/>
+  <rect class="l" x="11" y="6"/>
+  <rect class="s" x="12" y="6"/>
+
+  <!-- Row 8 -->
+  <rect class="o" x="1" y="7"/>
+  <rect class="l" x="2" y="7"/>
+  <rect class="w" x="3" y="7"/>
+  <rect class="w" x="4" y="7"/>
+  <rect class="w" x="5" y="7"/>
+  <rect class="w" x="6" y="7"/>
+  <rect class="w" x="7" y="7"/>
+  <rect class="w" x="8" y="7"/>
+  <rect class="w" x="9" y="7"/>
+  <rect class="w" x="10" y="7"/>
+  <rect class="w" x="11" y="7"/>
+  <rect class="l" x="12" y="7"/>
+  <rect class="s" x="13" y="7"/>
+
+  <!-- Row 9 -->
+  <rect class="o" x="1" y="8"/>
+  <rect class="l" x="2" y="8"/>
+  <rect class="w" x="3" y="8"/>
+  <rect class="w" x="4" y="8"/>
+  <rect class="w" x="5" y="8"/>
+  <rect class="w" x="6" y="8"/>
+  <rect class="w" x="7" y="8"/>
+  <rect class="w" x="8" y="8"/>
+  <rect class="w" x="9" y="8"/>
+  <rect class="w" x="10" y="8"/>
+  <rect class="w" x="11" y="8"/>
+  <rect class="l" x="12" y="8"/>
+  <rect class="s" x="13" y="8"/>
+
+  <!-- Row 10 -->
+  <rect class="o" x="1" y="9"/>
+  <rect class="s" x="2" y="9"/>
+  <rect class="l" x="3" y="9"/>
+  <rect class="l" x="4" y="9"/>
+  <rect class="w" x="5" y="9"/>
+  <rect class="w" x="6" y="9"/>
+  <rect class="w" x="7" y="9"/>
+  <rect class="w" x="8" y="9"/>
+  <rect class="w" x="9" y="9"/>
+  <rect class="l" x="10" y="9"/>
+  <rect class="l" x="11" y="9"/>
+  <rect class="s" x="12" y="9"/>
+  <rect class="o" x="13" y="9"/>
+
+  <!-- Row 11 (bottom) -->
+  <rect class="o" x="2" y="10"/>
+  <rect class="s" x="3" y="10"/>
+  <rect class="s" x="4" y="10"/>
+  <rect class="s" x="5" y="10"/>
+  <rect class="l" x="6" y="10"/>
+  <rect class="l" x="7" y="10"/>
+  <rect class="l" x="8" y="10"/>
+  <rect class="s" x="9" y="10"/>
+  <rect class="s" x="10" y="10"/>
+  <rect class="s" x="11" y="10"/>
+  <rect class="o" x="12" y="10"/>
+
+  <!-- Row 12 (bottom shadow) -->
+  <rect class="o" x="3" y="11"/>
+  <rect class="o" x="4" y="11"/>
+  <rect class="o" x="5" y="11"/>
+  <rect class="o" x="6" y="11"/>
+  <rect class="o" x="7" y="11"/>
+  <rect class="o" x="8" y="11"/>
+  <rect class="o" x="9" y="11"/>
+  <rect class="o" x="10" y="11"/>
+  <rect class="o" x="11" y="11"/>
+</svg>
